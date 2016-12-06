@@ -45,12 +45,12 @@ public class PostController {
 		this.postService = postService;
 	}
 	
-	@RequestMapping(path = "/downloadImage/{id}", method = RequestMethod.GET, produces = "image/*")
+	@RequestMapping(path = "/downloadImage/{id}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> downloadImage(@PathVariable long id) throws IOException {
 		return downloadImageCommon(id, null, null);
 	}
 	
-	@RequestMapping(path = "/downloadImage/{id}/{width}/{height}", method = RequestMethod.GET, produces = "image/*")
+	@RequestMapping(path = "/downloadImage/{id}/{width}/{height}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> downloadImageWithScaling(@PathVariable long id, @PathVariable Integer width, @PathVariable Integer height) throws IOException {
 		return downloadImageCommon(id, width, height);
 	}
