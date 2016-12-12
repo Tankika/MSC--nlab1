@@ -10,7 +10,7 @@ public class PostPredicates {
 
 	public static Predicate titleLike(String title) {
 		if(title != null) {
-			return QPost.post.title.like("%" + title + "%");
+			return QPost.post.title.toLowerCase().like("%" + title.toLowerCase() + "%");
 		} else {
 			return null;
 		}
@@ -18,7 +18,7 @@ public class PostPredicates {
 
 	public static Predicate cityLike(String city) {
 		if(city != null) {
-			return QPost.post.location.city.like("%" + city + "%");
+			return QPost.post.location.city.toLowerCase().like("%" + city.toLowerCase() + "%");
 		} else {
 			return null;
 		}
