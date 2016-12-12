@@ -63,8 +63,8 @@ public class PostController {
 		sendPostRequest.setTitle(parameterMap.getOrDefault("post[title]", new String[0]).length > 0 ? parameterMap.get("post[title]")[0] : "");
 		sendPostRequest.setDescription(parameterMap.getOrDefault("post[description]", new String[0]).length > 0 ? parameterMap.get("post[description]")[0] : "");
 		sendPostRequest.setPostalCode(parameterMap.getOrDefault("post[postalCode]", new String[0]).length > 0 ? parameterMap.get("post[postalCode]")[0] : "");
-		sendPostRequest.setPriceMin(parameterMap.getOrDefault("post[priceMin]", new String[0]).length > 0 ? Integer.parseInt(parameterMap.get("post[priceMin]")[0]) : 0);
-		sendPostRequest.setPriceMax(parameterMap.getOrDefault("post[priceMax]", new String[0]).length > 0 ? Integer.parseInt(parameterMap.get("post[priceMax]")[0]) : 0);
+		sendPostRequest.setPriceMin(parameterMap.getOrDefault("post[priceMin]", new String[0]).length > 0 ? ("".equals(parameterMap.get("post[priceMin]")[0]) ? 0 : Integer.parseInt(parameterMap.get("post[priceMin]")[0])) : 0);
+		sendPostRequest.setPriceMax(parameterMap.getOrDefault("post[priceMax]", new String[0]).length > 0 ? ("".equals(parameterMap.get("post[priceMax]")[0]) ? 0 : Integer.parseInt(parameterMap.get("post[priceMax]")[0])) : 0);
 		sendPostRequest.setCategory(parameterMap.getOrDefault("post[category]", new String[0]).length > 0 ? Long.parseLong(parameterMap.get("post[category]")[0]) : 0L);
 		sendPostRequest.setName(parameterMap.getOrDefault("post[name]", new String[0]).length > 0 ? parameterMap.get("post[name]")[0] : "");
 		sendPostRequest.setPhone(parameterMap.getOrDefault("post[phone]", new String[0]).length > 0 ? parameterMap.get("post[phone]")[0] : "");
